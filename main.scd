@@ -9,6 +9,7 @@ s.waitForBoot({
 	(basePath +/+ "synthdefs/bass.scd").load;
 	(basePath +/+ "synthdefs/guitar.scd").load;
 	(basePath +/+ "synthdefs/sounds.scd").load;
+	(basePath +/+ "synthdefs/keys.scd").load;
 	"✅ SynthDefs loaded.".postln;
 
 	// --- Load Utilities ---
@@ -18,7 +19,15 @@ s.waitForBoot({
 
 	// --- Load and start your groove ---
 	(basePath +/+ "patterns/basic_groove.scd").load;
-
-	~song.play(TempoClock.default);
 });
 )
+
+(
+~song.play(TempoClock.default);
+)
+
+(
+~stopAll.value;
+)
+
+thisProcess.stop;
